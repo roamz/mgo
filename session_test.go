@@ -29,8 +29,8 @@ package mgo_test
 import (
 	"flag"
 	"fmt"
-	"labix.org/v2/mgo"
-	"labix.org/v2/mgo/bson"
+	"github.com/roamz/mgo"
+	"github.com/roamz/mgo/bson"
 	. "launchpad.net/gocheck"
 	"math"
 	"reflect"
@@ -741,7 +741,7 @@ func (s *S) TestIsDupValues(c *C) {
 	c.Assert(mgo.IsDup(&mgo.QueryError{Code: 11001}), Equals, true)
 	c.Assert(mgo.IsDup(&mgo.LastError{Code: 12582}), Equals, true)
 	c.Assert(mgo.IsDup(&mgo.QueryError{Code: 12582}), Equals, true)
-	lerr := &mgo.LastError{Code: 16460, Err:"error inserting 1 documents to shard ... caused by :: E11000 duplicate key error index: ..."}
+	lerr := &mgo.LastError{Code: 16460, Err: "error inserting 1 documents to shard ... caused by :: E11000 duplicate key error index: ..."}
 	c.Assert(mgo.IsDup(lerr), Equals, true)
 }
 
